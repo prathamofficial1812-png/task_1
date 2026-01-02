@@ -5,7 +5,7 @@ services:
     depends_on:
       - api
     ports:
-      - "8000:3000"
+      - "8080:3000"
     networks:
       - network-backend
   api:
@@ -15,7 +15,7 @@ services:
     env_file:
     - .env
     ports:
-      - "8001:3001"
+      - "8081:3001"
     networks: 
      - network-backend
   
