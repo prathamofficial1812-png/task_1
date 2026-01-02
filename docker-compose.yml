@@ -12,6 +12,8 @@ services:
     build: ./backend
     depends_on:
       - mongo
+    env_file:
+    - .env
     ports:
       - "3001:3001"
     networks: 
@@ -23,8 +25,8 @@ services:
     volumes: 
       - mongodb_data:/data/db
     environment: 
-      MONGODB_INITDB_ROOT_USERNAME: username
-      MONGODB_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
     # uncomment following lines to access db locally
     # ports:
     #   - 27017:27017
